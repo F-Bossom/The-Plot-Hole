@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="icon" href="/Favicon.png">
+  </head>
+  <body>
+  <%- include('./partials/_navbar.ejs', { user: user, isHome: true }) %>
+
+  <div class="home-container">
+    <div class="home-text">
+      <h1>Welcome to The Plot Hole</h1>
+      <p>Track, rate, and organize your favorite media while discovering new favorites through an active community!</p>
+
+      <% if (!user) { %>
+        <div class="home-buttons">
+          <form action="/auth/sign-in" method="GET" style="display:inline">
+            <button type="submit" class="home-button">Sign In</button>
+          </form>
+
+          <form action="/auth/sign-up" method="GET" style="display:inline">
+            <button type="submit" class="home-button">Sign Up</button>
+          </form>
+        </div>
+      <% } %>
+    </div>
+
+    <div class="home-image">
+      <img src="/The-Plot-Hole-logo.png" alt="The Plot Hole Logo" />
+    </div>
+  </div>
+</body>
+
+</html>

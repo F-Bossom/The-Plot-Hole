@@ -1,0 +1,18 @@
+<% const onHome = typeof isHome !== 'undefined' && isHome; %>
+
+<nav>
+  <a href="/">Home</a>
+
+  <% if (user) { %>
+    <!-- Logged-in navbar links -->
+    <a href="/users/<%= user._id %>/medias">View my Library</a>
+    <a href="/users">Explore Our Community</a>
+    <a href="/auth/sign-out">Sign Out</a>
+  <% } else { %>
+    <!-- Only show Sign In / Sign Up if not on home page -->
+    <% if (!onHome) { %>
+      <a href="/auth/sign-in">Sign In</a>
+      <a href="/auth/sign-up">Sign Up</a>
+    <% } %>
+  <% } %>
+</nav>

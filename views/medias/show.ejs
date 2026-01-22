@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= media.name %></title>
+    <link rel="icon" href="/Favicon.png" />
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <h1><%= media.name %></h1>
+
+    <div class="media-details">
+      <p>
+        <strong>Type:</strong>
+        <span class="tag <%= media.type.toLowerCase() %>"
+          ><%= media.type %></span
+        >
+      </p>
+      <p>
+        <strong>Status:</strong>
+        <%= media.status %>
+      </p>
+
+      <% if (media.rating) { %>
+      <p>
+        <strong>Rating:</strong>
+        <%= "★".repeat(media.rating) %>
+      </p>
+      <% } %>
+    </div>
+
+    <h2>Notes</h2>
+    <ul>
+      <% if (!media.notes || media.notes.length === 0) { %>
+      <li>No notes yet.</li>
+      <% } else { %>
+      <% media.notes.forEach(note => { %>
+      <li>
+        <%= note.text %>
+        <small>
+          Created:
+          <%= new Date(note.createdAt).toLocaleString() %>
+          <% if (note.updatedAt) { %>
+          | Updated:
+          <%= new Date(note.updatedAt).toLocaleString() %>
+          <% } %>
+        </small>
+
+        <!-- EDIT NOTE -->
+        <form
+          action="/users/<%= user._id %>/medias/<%= media._id %>/notes/<%= note._id %>/edit"
+          method="GET"
+          style="display: inline"
+        >
+          <button type="submit" class="edit-note-btn">Edit</button>
+        </form>
+
+        <!-- DELETE NOTE -->
+        <form
+          action="/users/<%= user._id %>/medias/<%= media._id %>/notes/<%= note._id %>?_method=DELETE"
+          method="POST"
+          style="display: inline"
+        >
+          <button type="submit" class="delete-note-btn">Delete</button>
+        </form>
+      </li>
+      <% }) %>
+      <% } %>
+    </ul>
+
+    <h3>Add a Note</h3>
+
+    <!-- ERROR MESSAGE FOR EMPTY NOTE -->
+    <% if (noteError === 'empty') { %>
+    <p class="error-message">Note cannot be empty or just spaces.</p>
+    <% } %>
+
+    <form
+      action="/users/<%= user._id %>/medias/<%= media._id %>/notes"
+      method="POST"
+    >
+      <textarea
+        name="text"
+        required
+        placeholder="Write a note..."
+        rows="3"
+      ></textarea>
+      <br />
+      <button type="submit" class="add-note">Add Note</button>
+    </form>
+
+    <div class="button-container">
+      <a href="/users/<%= user._id %>/medias" class="back-btn"
+        >Back to Library</a
+      >
+
+      <form
+        action="/users/<%= user._id %>/medias/<%= media._id %>/edit"
+        method="GET"
+        style="display: inline"
+      >
+        <button class="edit-button" type="submit">Edit</button>
+      </form>
+
+      <form
+        action="/users/<%= user._id %>/medias/<%= media._id %>?_method=DELETE"
+        method="POST"
+        style="display: inline"
+      >
+        <button class="delete-button" type="submit">Delete</button>
+      </form>
+    </div>
+  </body>
+</html>

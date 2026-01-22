@@ -1,0 +1,314 @@
+/* GLOBAL STYLES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+body {
+  background-color: #f8f8f8;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #0077cc;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  padding: 8px 16px;
+  margin: 4px;
+  border-radius: 4px;
+  transition: 0.2s ease;
+}
+
+/* NAVBAR */
+nav {
+  background-color: #222;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+nav a {
+  color: #fff;
+  margin-right: 15px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #ffcc00;
+}
+
+/* HOMEPAGE */
+h1 {
+  margin-bottom: 20px;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.home-button {
+  background-color: #0077cc;
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px 24px;
+  border-radius: 6px;
+}
+
+.home-button:hover {
+  background-color: #005fa3;
+}
+
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem;
+}
+
+.home-text {
+  max-width: 50%;
+}
+
+.home-image img {
+  max-width: 500px;
+  width: 100%;
+  opacity: 0.9;
+}
+
+/* AUTH PAGES */
+.sign-fields {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sign-fields form {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-fields label {
+  margin: 8px 0 4px;
+  font-weight: 600;
+}
+
+.sign-fields input {
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.sign-in-button,
+.sign-up-button {
+  background-color: #0077cc;
+  color: white;
+  padding: 10px;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.sign-in-button:hover,
+.sign-up-button:hover {
+  background-color: #005fa3;
+}
+
+/* MEDIA CARDS (INDEX / SHOW) */
+.media-card,
+.library-container li {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.media-card h3,
+.library-container li strong {
+  margin-bottom: 8px;
+}
+
+.button-container {
+  margin-top: 10px;
+}
+
+.add-button,
+.add-note,
+.update-button,
+.view-button,
+.edit-button,
+.edit-note-btn,
+.delete-button,
+.save-button {
+  background-color: #0077cc;
+  color: white;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+.delete-button,
+.delete-note-btn {
+  background-color: #cc3300;
+  color: white;
+}
+
+.add-button:hover,
+.add-item:hover,
+.view-button:hover,
+.edit-button:hover,
+.edit-note-btn:hover,
+.add-note:hover,
+.save-button:hover {
+  background-color: #035792;
+}
+
+.delete-button:hover,
+.delete-note-btn:hover {
+  background-color: #992200;
+}
+
+.add-item {
+  background-color: #0077cc;
+  color: white;
+}
+
+/* TAGS (MEDIA TYPE) */
+.tag {
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: black;
+  font-size: 0.85rem;
+  margin-left: 4px;
+}
+
+.tag.movie {
+  background-color: #7dc4f7;
+}
+
+.tag.show {
+  background-color: #74c974;
+}
+
+.tag.book {
+  background-color: #f08c29;
+}
+
+/* NOTES */
+.media-details,
+.notes {
+  background-color: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  margin-bottom: 12px;
+}
+
+.notes ul,
+.media-details p {
+  margin-bottom: 6px;
+}
+
+small {
+  color: #555;
+  font-size: 0.8rem;
+}
+
+/* COMMUNITY/USERS */
+.users-list li {
+  margin-bottom: 10px;
+}
+
+.back-button {
+  margin-top: 12px;
+  background-color: #555;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.back-btn {
+  background-color: #555;
+  color: white;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+.back-button:hover {
+  background-color: #333;
+}
+
+.back-btn:hover {
+  background-color: #333
+}
+
+/* ERROR PAGES */
+.error-container {
+  max-width: 500px;
+  margin: 5rem auto;
+  text-align: center;
+  padding: 2rem;
+  border: 2px solid #f5c2c7;
+  background-color: #fde2e5;
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.error-container h1 {
+  color: #842029;
+  margin-bottom: 1rem;
+}
+
+.error-container p {
+  color: #6c1c28;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.error-button {
+  background-color: #0077cc;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 5px;
+}
+
+.error-button:hover {
+  background-color: #005fa3;
+}
+
+.error-button.secondary {
+  background-color: #6c757d;
+}
+
+.error-button.secondary:hover {
+  background-color: #5a6268;
+}
+
+/* MISC */
+ul {
+  list-style-type: none;
+}

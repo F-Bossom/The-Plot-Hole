@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Edit Note</title>
+    <link rel="icon" href="/Favicon.png">
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <h1>Edit Note</h1>
+
+    <form
+      action="/users/<%= user._id %>/medias/<%= media._id %>/notes/<%= note._id %>?_method=PUT"
+      method="POST"
+    >
+      <textarea name="text" required rows="5"><%= note.text %></textarea>
+      <br />
+      <button type="submit" class="save-button">Save Changes</button>
+    </form>
+
+    <a href="/users/<%= user._id %>/medias/<%= media._id %>">Back to Media</a>
+  </body>
+</html>

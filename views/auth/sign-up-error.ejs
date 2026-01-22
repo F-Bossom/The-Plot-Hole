@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up Error</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="error-container">
+    <h1>Oops!</h1>
+    <p><%= message %></p>
+
+    <form action="/auth/sign-up" method="GET">
+      <button type="submit" class="error-button">Back to Sign Up</button>
+    </form>
+
+    <form action="/" method="GET" style="margin-top: 10px;">
+      <button type="submit" class="error-button secondary">Back to Home</button>
+    </form>
+  </div>
+</body>
+</html>

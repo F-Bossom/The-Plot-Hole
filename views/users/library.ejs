@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= otherUser.username %>'s Library</title>
+  <link rel="icon" href="/Favicon.png">
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+
+  <h1><%= otherUser.username %>'s Library</h1>
+
+  <% const isOwner = user && user._id.toString() === otherUser._id.toString(); %>
+
+  <!-- ADD NEW MEDIA (OWNER ONLY) -->
+  <% if (isOwner) { %>
+    <form action="/users/<%= user._id %>/medias/new" method="GET">
+      <button type="submit" class="add-button">Add New Media</button>
+    </form>
+  <% } %>
+
+  <div class="library-container">
+    <% if (library.length === 0) { %>
+      <p>No items yet.</p>
+    <% } else { %>
+      <ul>
+        <% library.forEach(item => { %>
+          <li class="media-card">
+
+            <!-- TITLE -->
+            <strong><%= item.name %></strong>
+
+            <!-- TYPE TAG (FIXED) -->
+            <span class="tag <%= item.type.toLowerCase() %>">
+              <%= item.type %>
+            </span>
+
+            <!-- STATUS -->
+            <p>Status: <%= item.status %></p>
+
+            <!-- RATING -->
+            <% if (item.rating) { %>
+              <p>Rating: <%= "★".repeat(item.rating) %></p>
+            <% } %>
+
+            <!-- VIEW (ALWAYS ALLOWED) -->
+            <form
+              action="/users/<%= user._id %>/medias/<%= item._id %>/view/<%= otherUser._id %>"
+              method="GET"
+              style="display:inline"
+            >
+              <button type="submit" class="view-button">View</button>
+            </form>
+
+            <!-- EDIT / DELETE (OWNER ONLY) -->
+            <% if (isOwner) { %>
+              <form
+                action="/users/<%= user._id %>/medias/<%= item._id %>/edit"
+                method="GET"
+                style="display:inline"
+              >
+                <button type="submit" class="edit-button">Edit</button>
+              </form>
+
+              <form
+                action="/users/<%= user._id %>/medias/<%= item._id %>?_method=DELETE"
+                method="POST"
+                style="display:inline"
+              >
+                <button type="submit" class="delete-button">Delete</button>
+              </form>
+            <% } %>
+
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </div>
+
+  <a href="/users" class="back-btn">Back to Community</a>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta charset="UTF-8" />
+    <title>Edit <%= media.name %></title>
+    <link rel="icon" href="/Favicon.png">
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <h1>Edit <%= media.name %></h1>
+
+    <form
+  action="/users/<%= user._id %>/medias/<%= media._id %>?_method=PUT"
+  method="POST"
+  class="media-form"
+>
+  <!-- Name -->
+  <label for="name">Media Name:</label>
+  <input
+    type="text"
+    id="name"
+    name="name"
+    value="<%= media.name %>"
+    required
+  />
+
+  <!-- Type -->
+  <label for="type">Type:</label>
+  <select name="type" id="type" required>
+    <option value="Book" <%= media.type === 'Book' ? 'selected' : '' %>>Book</option>
+    <option value="Movie" <%= media.type === 'Movie' ? 'selected' : '' %>>Movie</option>
+    <option value="Show" <%= media.type === 'Show' ? 'selected' : '' %>>TV Show</option>
+  </select>
+
+  <!-- Status -->
+  <label for="status">Status:</label>
+  <select name="status" id="status">
+    <option value="Planned" <%= media.status === 'Planned' ? 'selected' : '' %>>Planned</option>
+    <option value="In-Progress" <%= media.status === 'In-Progress' ? 'selected' : '' %>>In Progress</option>
+    <option value="Completed" <%= media.status === 'Completed' ? 'selected' : '' %>>Completed</option>
+  </select>
+
+  <!-- Rating -->
+  <label for="rating">Rating:</label>
+  <select name="rating" id="rating">
+    <option value="" <%= !media.rating ? 'selected' : '' %>>--</option>
+    <% for (let i = 1; i <= 5; i++) { %>
+      <option value="<%= i %>" <%= media.rating == i ? 'selected' : '' %>><%= i %></option>
+    <% } %>
+  </select>
+
+  <button type="submit" class="update-button">Update</button>
+</form>
+
+    <div class="button-container">
+      <a href="/users/<%= user._id %>/medias" class="back-btn">
+        Back to Library
+      </a>
+    </div>
+  </body>
+</html>

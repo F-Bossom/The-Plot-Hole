@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Library</title>
+    <link rel="icon" href="/Favicon.png">
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <h1>My Library</h1>
+
+    <div class="button-container">
+      <form
+        action="/users/<%= user._id %>/medias/new"
+        method="GET"
+        style="display: inline"
+      >
+        <button type="submit" class="add-button">Add New Item</button>
+      </form>
+    </div>
+
+  <ul>
+  <% if (library.length === 0) { %>
+    <li>There are no items in this library.</li>
+  <% } else { %>
+    <% library.forEach(item => { %>
+      <li class="media-card">
+        <h3><%= item.name %></h3>
+
+        <p>
+          <strong>Type:</strong>
+          <span class="tag <%= item.type.toLowerCase() %>">
+           <%= item.type %>
+          </span>
+        </p>
+        <p><strong>Status:</strong> <%= item.status %></p>
+
+        <% if (item.rating) { %>
+          <p><strong>Rating:</strong> <%= "★".repeat(item.rating) %></p>
+        <% } %>
+
+        <form
+          action="/users/<%= user._id %>/medias/<%= item._id %>"
+          method="GET"
+          style="display: inline"
+>
+          <button class="view-button" type="submit">View</button>
+          </form>
+
+        <form
+          action="/users/<%= user._id %>/medias/<%= item._id %>/edit"
+          method="GET"
+          style="display: inline"
+        >
+          <button class="edit-button" type="submit">Edit</button>
+        </form>
+
+        <form
+          action="/users/<%= user._id %>/medias/<%= item._id %>?_method=DELETE"
+          method="POST"
+          style="display: inline"
+        >
+          <button class="delete-button" type="submit">Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  <% } %>
+</ul>
+
+  </body>
+</html>

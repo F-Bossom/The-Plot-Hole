@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Item</title>
+    <link rel="icon" href="/Favicon.png" />
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <h1>Add a New Item</h1>
+
+    <!-- Error Message -->
+    <% if (error) { %>
+    <p class="error"><%= error %></p>
+    <% } %>
+
+    <form action="/users/<%= user._id %>/medias" method="POST">
+      <!-- Name -->
+      <label for="name">Media Name:</label>
+      <input type="text" name="name" id="name" required />
+
+      <!-- Type -->
+      <label for="type">Type:</label>
+      <select name="type" id="type" required>
+        <option value="Book">Book</option>
+        <option value="Movie">Movie</option>
+        <option value="Show">TV Show</option>
+      </select>
+
+      <!-- Status -->
+      <label for="status">Status:</label>
+      <select name="status" id="status">
+        <option value="Planned">Planned</option>
+        <option value="In-Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+      </select>
+
+      <!-- Rating -->
+      <label for="rating">Rating:</label>
+      <select name="rating" id="rating">
+        <option value="">--</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <button type="submit" class="add-item">Add Item</button>
+    </form>
+  </body>
+</html>

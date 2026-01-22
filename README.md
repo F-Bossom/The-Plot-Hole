@@ -1,0 +1,50 @@
+# The Plot Hole
+
+<p align="center">
+  <img
+    src="public/The-Plot-Hole-logo.png"
+    alt="Screenshot of The Plot Hole Logo"
+    width="400"
+  />
+</p>
+
+
+## Description
+
+**The Plot Hole** is a personal media library app that lets users track movies, TV shows, and books. Users can add items to their library, record notes, assign a rating, and mark the status of each item. The app features session-based authentication, so each user can only manage their own media library.
+
+I built this app to practice full-stack development with Node.js, Express, MongoDB, and EJS templates while implementing authentication, authorization, and CRUD functionality.
+
+## Deployed App
+
+**[Deployed App link]**
+
+**Planning Materials / Wireframes:** [Trello](https://trello.com/b/jN5pKBVI)
+
+## Technologies Used
+
+- JavaScript (ES6+)
+- Node.js
+- Express.js
+- EJS Templates
+- MongoDB / Mongoose
+- CSS (Flexbox for layout)
+- HTML5
+- Session-based Authentication (express-session)
+- Method Override for RESTful routing
+
+## Attributions
+
+- Referenced class notes and materials
+- Express.js – Web framework for Node.js
+- MongoDB & Mongoose – Database and ODM
+- ChatGPT - testing/debugging and troubleshooting
+- Prettier – Code formatting
+- Nunito Font - Google Fonts
+
+## Next Steps / Stretch Goals
+
+- Add filtering and sorting options for the library (by type, rating, or status).
+- Allow collaborative libraries where users can share media lists with friends.
+- Implement pagination for large libraries.
+- Enhance the UI with more responsive design and pictures/animations.

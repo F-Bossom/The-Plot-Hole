@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <link rel="icon" href="/Favicon.png">
+  </head>
+  <body>
+<%- include('../partials/_navbar.ejs', { hideAuthLinks: true }) %>
+    <h1>Sign in</h1>
+    <div class="sign-fields">
+    <form action="/auth/sign-in" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" required />
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required />
+      <button type="submit" class="sign-in-button">Sign in</button>
+    </form>
+    </div>
+  </body>
+</html>

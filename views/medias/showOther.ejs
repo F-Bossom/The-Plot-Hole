@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= media.name %> - <%= otherUser.username %>'s Library</title>
+    <link rel="icon" href="/Favicon.png">
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <h1><%= media.name %></h1>
+    <h2><%= otherUser.username %>'s Library</h2>
+
+    <div class="media-details">
+      <p>
+        <strong>Type:</strong>
+        <span class="tag <%= media.type %>"><%= media.type %></span>
+      </p>
+      <p>
+        <strong>Status:</strong>
+        <%= media.status %>
+      </p>
+      <% if (media.rating) { %>
+      <p>
+        <strong>Rating:</strong>
+        <%= "★".repeat(media.rating) %>
+      </p>
+      <% } %>
+    </div>
+
+    <h2>Notes</h2>
+    <ul>
+      <% if (media.notes && media.notes.length === 0) { %>
+      <li>No notes yet.</li>
+      <% } else { %>
+      <% media.notes.forEach(note => { %>
+      <li>
+        <%= note.text %>
+        <small>
+          Created:
+          <%= new Date(note.createdAt).toLocaleString() %>
+          <% if (note.updatedAt) { %>
+          | Updated:
+          <%= new Date(note.updatedAt).toLocaleString() %>
+          <% } %>
+        </small>
+      </li>
+      <% }) %>
+      <% } %>
+    </ul>
+
+    <div class="button-container">
+      <a href="/users/<%= otherUser._id %>"
+        >Back to
+        <%= otherUser.username %>'s Library</a
+      >
+    </div>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community</title>
+    <link rel="icon" href="/Favicon.png">
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <h1>Community</h1>
+
+    <ul class="users-list">
+      <% users.forEach(user => { %>
+      <li>
+      <a href="/users/<%= user._id %>"><%= user.username %></a>
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>
