@@ -38,7 +38,8 @@ I built this app to practice full-stack development with Node.js, Express, Mongo
 - Referenced class notes and materials
 - [MDN Web Docs](https://developer.mozilla.org/)
 - [WebAIM](https://webaim.org/resources/contrastchecker/) for WCAG testing 
-- ChatGPT - testing/debugging and troubleshooting
+- [Unsplash](https://unsplash.com/) for background image
+- ChatGPT - testing/debugging assistant and logo design
 - Prettier Extension – Code formatting
 - Nunito Font - Google Fonts
 
@@ -46,6 +47,7 @@ I built this app to practice full-stack development with Node.js, Express, Mongo
 
 - Add filtering and sorting options for the library (by type, rating, or status).
 - Allow collaborative libraries where users can share media lists with friends.
+- Have the option to change your avatar to an image.
 - Implement pagination for large libraries.
 - Enhance the UI with more responsive design and pictures/animations.
 

@@ -11,13 +11,13 @@
     <title>Home Page</title>
     <link rel="icon" href="/Favicon.png">
   </head>
-  <body>
+  <body class="home-page">
   <%- include('./partials/_navbar.ejs', { user: user, isHome: true }) %>
 
   <div class="home-container">
     <div class="home-text">
-      <h1>Welcome to The Plot Hole</h1>
-      <p>Track, rate, and organize your favorite media while discovering new favorites through an active community!</p>
+      <h1 class="home-text">Welcome to The Plot Hole</h1>
+      <p class="home-text">Track, rate, and organize your favorite media while discovering new favorites through an active community!</p>
 
       <% if (!user) { %>
         <div class="home-buttons">

@@ -14,14 +14,25 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
 
-    <h1>Community</h1>
+   <div class="community-container">
+  <h1 class="community-title">Community</h1>
+  <p class="community-subtitle">
+    Discover what other users are watching, reading, and loving.
+  </p>
 
-    <ul class="users-list">
-      <% users.forEach(user => { %>
-      <li>
-      <a href="/users/<%= user._id %>"><%= user.username %></a>
+  <ul class="users-grid">
+    <% users.forEach(user => { %>
+      <li class="user-card">
+        <a href="/users/<%= user._id %>">
+          <div class="avatar">
+            <%= user.username.charAt(0).toUpperCase() %>
+          </div>
+          <span class="username"><%= user.username %></span>
+        </a>
       </li>
-      <% }) %>
-    </ul>
+    <% }) %>
+  </ul>
+</div>
+
   </body>
 </html>
