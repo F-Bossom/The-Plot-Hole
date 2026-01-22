@@ -16,6 +16,15 @@
 
     <h1><%= media.name %></h1>
 
+    <!-- Display Image -->
+    <% if (media.imageUrl) { %>
+    <img
+      src="<%= media.imageUrl %>"
+      alt="<%= media.name %>"
+      class="media-image"
+    />
+    <% } %>
+
     <div class="media-details">
       <p>
         <strong>Type:</strong>

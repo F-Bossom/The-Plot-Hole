@@ -55,6 +55,10 @@
     <% } %>
   </select>
 
+  <!-- Image URL -->
+  <label for="imageUrl">Image URL (Optional):</label>
+  <input type="url" name="imageUrl" id="imageUrl" placeholder="https://example.com/image.jpg" value="<%= media.imageUrl || '' %>" />
+
   <button type="submit" class="update-button">Update</button>
 </form>
 

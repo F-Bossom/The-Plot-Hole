@@ -9,13 +9,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= media.name %> - <%= otherUser.username %>'s Library</title>
-    <link rel="icon" href="/Favicon.png">
+    <link rel="icon" href="/Favicon.png" />
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
 
     <h1><%= media.name %></h1>
     <h2><%= otherUser.username %>'s Library</h2>
+
+    <!-- Display Image -->
+    <% if (media.imageUrl) { %>
+    <img
+      src="<%= media.imageUrl %>"
+      alt="<%= media.name %>"
+      class="media-image"
+    />
+    <% } %>
 
     <div class="media-details">
       <p>
