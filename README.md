@@ -17,11 +17,11 @@ I built this app to practice full-stack development with Node.js, Express, Mongo
 
 ## Deployed App
 
-**[Deployed App link]**
+**[Deployed App link goes here]**
 
 **Planning Materials / Wireframes:** [Trello](https://trello.com/b/jN5pKBVI)
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 - JavaScript (ES6+)
 - Node.js
@@ -33,18 +33,24 @@ I built this app to practice full-stack development with Node.js, Express, Mongo
 - Session-based Authentication (express-session)
 - Method Override for RESTful routing
 
-## Attributions
+## 📜 Attributions
 
 - Referenced class notes and materials
-- Express.js – Web framework for Node.js
-- MongoDB & Mongoose – Database and ODM
+- [MDN Web Docs](https://developer.mozilla.org/)
+- [WebAIM](https://webaim.org/resources/contrastchecker/) for WCAG testing 
 - ChatGPT - testing/debugging and troubleshooting
-- Prettier – Code formatting
+- Prettier Extension – Code formatting
 - Nunito Font - Google Fonts
 
-## Next Steps / Stretch Goals
+## 🚀 Next Steps / Stretch Goals
 
 - Add filtering and sorting options for the library (by type, rating, or status).
 - Allow collaborative libraries where users can share media lists with friends.
 - Implement pagination for large libraries.
 - Enhance the UI with more responsive design and pictures/animations.
+
+## 🧁 Credits
+
+Created by: Felicia Bossom
+
+- App concept, design, and development by yours truly 🌸

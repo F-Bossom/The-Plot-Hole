@@ -81,7 +81,12 @@ h1 {
 }
 
 .home-text {
-  max-width: 50%;
+  font-size: 35px;
+  max-width: 60%;
+}
+
+.home-text p {
+  font-size: 20px;
 }
 
 .home-image img {
