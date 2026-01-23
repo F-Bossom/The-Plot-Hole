@@ -15,9 +15,8 @@
 
 I built this app to practice full-stack development with Node.js, Express, MongoDB, and EJS templates while implementing authentication, authorization, and CRUD functionality.
 
-## Deployed App
+**Deployed App: [The Plot Hole](https://the-plot-hole-d3934187e751.herokuapp.com/)**
 
-**[Deployed App link goes here]**
 
 **Planning Materials / Wireframes:** [Trello](https://trello.com/b/jN5pKBVI)
 
