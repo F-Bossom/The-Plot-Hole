@@ -350,7 +350,6 @@ small {
   border: 2px solid #f5c2c7;
   background-color: #fde2e5;
   border-radius: 10px;
-  font-family: 'Nunito', sans-serif;
 }
 
 .error-container h1 {
@@ -399,4 +398,101 @@ ul {
   display: block;
   margin-bottom: 1rem;
   border-radius: 4px;
+}
+
+/* =========================
+   MOBILE RESPONSIVENESS
+   ========================= */
+@media (max-width: 768px) {
+
+  /* BODY */
+  body {
+    padding: 12px;
+  }
+
+ nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    padding: 8px 12px;
+  }
+
+  nav a {
+    margin-right: 0;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  /* HOMEPAGE */
+  .home-container {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .home-text h1 {
+    font-size: 2rem;
+    max-width: 100%;
+  }
+
+  .home-text p {
+    font-size: 1.1rem;
+  }
+
+  .home-buttons {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .home-button {
+    width: 100%;
+  }
+
+  .home-image img {
+    max-width: 280px;
+    margin-top: 2rem;
+  }
+
+  /* LIBRARY / MEDIA CARDS */
+  ul {
+    padding: 0;
+  }
+
+  .media-card {
+    padding: 12px;
+  }
+
+  .media-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* STACK ACTION BUTTONS */
+  .media-card form {
+    display: block !important;
+    margin-top: 6px;
+  }
+
+  .media-card button {
+    width: 100%;
+  }
+
+  /* COMMUNITY */
+  .community-container {
+    padding: 1rem;
+  }
+
+  .community-title {
+    font-size: 1.8rem;
+  }
+
+  .community-subtitle {
+    font-size: 1rem;
+  }
 }
