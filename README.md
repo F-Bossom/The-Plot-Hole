@@ -19,6 +19,13 @@ I built this app to practice full-stack development with Node.js, Express, Mongo
 
 
 **Planning Materials / Wireframes:** [Trello](https://trello.com/b/jN5pKBVI)
+<p align="left">
+  <img
+    src="public/trello.png"
+    alt="Screenshot of Trello"
+    width="600"
+  />
+</p>
 
 ## 🛠️ Technologies Used
 
