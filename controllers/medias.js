@@ -136,6 +136,7 @@ router.get('/:itemId/view/:ownerId', isSignedIn, async (req, res) => {
 });
 
 // NOTES (all owner-only)
+// ADD A NOTE to a media item
 router.post('/:itemId/notes', isSignedIn, isOwner, async (req, res) => {
   try {
     const user = await User.findById(req.session.user._id);
@@ -156,6 +157,7 @@ router.post('/:itemId/notes', isSignedIn, isOwner, async (req, res) => {
   }
 });
 
+// SHOW EDIT NOTE FORM
 router.get(
   '/:itemId/notes/:noteId/edit',
   isSignedIn,
@@ -176,6 +178,7 @@ router.get(
   }
 );
 
+// UPDATE AN EXISTING NOTE
 router.put('/:itemId/notes/:noteId', isSignedIn, isOwner, async (req, res) => {
   try {
     const user = await User.findById(req.session.user._id);
@@ -196,6 +199,7 @@ router.put('/:itemId/notes/:noteId', isSignedIn, isOwner, async (req, res) => {
   }
 });
 
+// DELETE A NOTE
 router.delete(
   '/:itemId/notes/:noteId',
   isSignedIn,

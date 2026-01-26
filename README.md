@@ -45,6 +45,7 @@ I built this app to practice full-stack development with Node.js, Express, Mongo
 ## 🚀 Next Steps / Stretch Goals
 
 - Add filtering and sorting options for the library (by type, rating, or status).
+- Improve mobile compatibility and performance
 - Allow collaborative libraries where users can share media lists with friends.
 - Have the option to change your avatar to an image.
 - Implement pagination for large libraries.
