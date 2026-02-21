@@ -2,70 +2,88 @@
 <html lang="en">
   <head>
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Teko:wght@600;700&family=Nunito:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit <%= media.name %></title>
-    <link rel="icon" href="/Favicon.png">
+    <link rel="icon" href="/Favicon.png" />
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
 
-    <h1>Edit <%= media.name %></h1>
+    <div class="form-page">
+      <div class="form-card">
+        <h1>Edit Item</h1>
+        <p class="form-subtitle">Updating <strong><%= media.name %></strong></p>
 
-    <form
-  action="/users/<%= user._id %>/medias/<%= media._id %>?_method=PUT"
-  method="POST"
-  class="media-form"
->
-  <!-- Name -->
-  <label for="name">Media Name:</label>
-  <input
-    type="text"
-    id="name"
-    name="name"
-    value="<%= media.name %>"
-    required
-  />
+        <form
+          action="/users/<%= user._id %>/medias/<%= media._id %>?_method=PUT"
+          method="POST"
+        >
 
-  <!-- Type -->
-  <label for="type">Type:</label>
-  <select name="type" id="type" required>
-    <option value="Book" <%= media.type === 'Book' ? 'selected' : '' %>>Book</option>
-    <option value="Movie" <%= media.type === 'Movie' ? 'selected' : '' %>>Movie</option>
-    <option value="Show" <%= media.type === 'Show' ? 'selected' : '' %>>TV Show</option>
-  </select>
+          <div class="form-group">
+            <label for="name">Media Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value="<%= media.name %>"
+              required
+            />
+          </div>
 
-  <!-- Status -->
-  <label for="status">Status:</label>
-  <select name="status" id="status">
-    <option value="Planned" <%= media.status === 'Planned' ? 'selected' : '' %>>Planned</option>
-    <option value="In-Progress" <%= media.status === 'In-Progress' ? 'selected' : '' %>>In Progress</option>
-    <option value="Completed" <%= media.status === 'Completed' ? 'selected' : '' %>>Completed</option>
-  </select>
+          <div class="form-group">
+            <label for="type">Type</label>
+            <select name="type" id="type" required>
+              <option value="Book"  <%= media.type === 'Book'  ? 'selected' : '' %>>📖 Book</option>
+              <option value="Movie" <%= media.type === 'Movie' ? 'selected' : '' %>>🎬 Movie</option>
+              <option value="Show"  <%= media.type === 'Show'  ? 'selected' : '' %>>📺 TV Show</option>
+            </select>
+          </div>
 
-  <!-- Rating -->
-  <label for="rating">Rating:</label>
-  <select name="rating" id="rating">
-    <option value="" <%= !media.rating ? 'selected' : '' %>>--</option>
-    <% for (let i = 1; i <= 5; i++) { %>
-      <option value="<%= i %>" <%= media.rating == i ? 'selected' : '' %>><%= i %></option>
-    <% } %>
-  </select>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select name="status" id="status">
+              <option value="Planned"     <%= media.status === 'Planned'     ? 'selected' : '' %>>📋 Planned</option>
+              <option value="In-Progress" <%= media.status === 'In-Progress' ? 'selected' : '' %>>▶️ In Progress</option>
+              <option value="Completed"   <%= media.status === 'Completed'   ? 'selected' : '' %>>✅ Completed</option>
+            </select>
+          </div>
 
-  <!-- Image URL -->
-  <label for="imageUrl">Image URL (Optional):</label>
-  <input type="url" name="imageUrl" id="imageUrl" placeholder="https://example.com/image.jpg" value="<%= media.imageUrl || '' %>" />
+          <div class="form-group">
+            <label for="rating">Rating</label>
+            <select name="rating" id="rating">
+              <option value="" <%= !media.rating ? 'selected' : '' %>>No rating yet</option>
+              <option value="1" <%= media.rating == 1 ? 'selected' : '' %>>★ 1 — Poor</option>
+              <option value="2" <%= media.rating == 2 ? 'selected' : '' %>>★★ 2 — Fair</option>
+              <option value="3" <%= media.rating == 3 ? 'selected' : '' %>>★★★ 3 — Good</option>
+              <option value="4" <%= media.rating == 4 ? 'selected' : '' %>>★★★★ 4 — Great</option>
+              <option value="5" <%= media.rating == 5 ? 'selected' : '' %>>★★★★★ 5 — Excellent</option>
+            </select>
+          </div>
 
-  <button type="submit" class="update-button">Update</button>
-</form>
+          <div class="form-group">
+            <label for="imageUrl">Cover Image URL <span class="label-optional">(optional)</span></label>
+            <input
+              type="url"
+              name="imageUrl"
+              id="imageUrl"
+              placeholder="https://example.com/cover.jpg"
+              value="<%= media.imageUrl || '' %>"
+            />
+          </div>
 
-    <div class="button-container">
-      <a href="/users/<%= user._id %>/medias" class="back-btn">
-        Back to Library
-      </a>
+          <div class="form-actions">
+            <a href="/users/<%= user._id %>/medias" class="back-btn">Cancel</a>
+            <button type="submit" class="update-button">Save Changes</button>
+          </div>
+
+        </form>
+      </div>
     </div>
+
   </body>
 </html>

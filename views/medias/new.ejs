@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Teko:wght@600;700&family=Nunito:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
@@ -14,55 +14,71 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
 
-    <h1>Add a New Item</h1>
+    <div class="form-page">
+      <div class="form-card">
+        <h1>Add New Item</h1>
+        <p class="form-subtitle">Track a new book, movie, or show in your library</p>
 
-    <!-- Error Message -->
-    <% if (error) { %>
-    <p class="error"><%= error %></p>
-    <% } %>
+        <% if (error) { %>
+          <p class="error-message"><%= error %></p>
+        <% } %>
 
-    <form action="/users/<%= user._id %>/medias" method="POST">
-      <!-- Name -->
-      <label for="name">Media Name:</label>
-      <input type="text" name="name" id="name" required />
+        <form action="/users/<%= user._id %>/medias" method="POST">
 
-      <!-- Type -->
-      <label for="type">Type:</label>
-      <select name="type" id="type" required>
-        <option value="Book">Book</option>
-        <option value="Movie">Movie</option>
-        <option value="Show">TV Show</option>
-      </select>
+          <div class="form-group">
+            <label for="name">Media Name</label>
+            <input type="text" name="name" id="name" placeholder="e.g. Inception, Dune, Breaking Bad" required />
+          </div>
 
-      <!-- Status -->
-      <label for="status">Status:</label>
-      <select name="status" id="status">
-        <option value="Planned">Planned</option>
-        <option value="In-Progress">In Progress</option>
-        <option value="Completed">Completed</option>
-      </select>
+          <div class="form-group">
+            <label for="type">Type</label>
+            <select name="type" id="type" required>
+              <option value="" disabled selected>Select a type...</option>
+              <option value="Book">📖 Book</option>
+              <option value="Movie">🎬 Movie</option>
+              <option value="Show">📺 TV Show</option>
+            </select>
+          </div>
 
-      <!-- Rating -->
-      <label for="rating">Rating:</label>
-      <select name="rating" id="rating">
-        <option value="">--</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select name="status" id="status">
+              <option value="Planned">📋 Planned</option>
+              <option value="In-Progress">▶️ In Progress</option>
+              <option value="Completed">✅ Completed</option>
+            </select>
+          </div>
 
-      <!-- Image URL -->
-      <label for="imageUrl">Image URL (Optional):</label>
-      <input
-        type="url"
-        name="imageUrl"
-        id="imageUrl"
-        placeholder="https://example.com/image.jpg"
-      />
+          <div class="form-group">
+            <label for="rating">Rating</label>
+            <select name="rating" id="rating">
+              <option value="">No rating yet</option>
+              <option value="1">★ 1 — Poor</option>
+              <option value="2">★★ 2 — Fair</option>
+              <option value="3">★★★ 3 — Good</option>
+              <option value="4">★★★★ 4 — Great</option>
+              <option value="5">★★★★★ 5 — Excellent</option>
+            </select>
+          </div>
 
-      <button type="submit" class="add-item">Add Item</button>
-    </form>
+          <div class="form-group">
+            <label for="imageUrl">Cover Image URL <span class="label-optional">(optional)</span></label>
+            <input
+              type="url"
+              name="imageUrl"
+              id="imageUrl"
+              placeholder="https://example.com/cover.jpg"
+            />
+          </div>
+
+          <div class="form-actions">
+            <a href="/users/<%= user._id %>/medias" class="back-btn">Cancel</a>
+            <button type="submit" class="add-item">Add to Library</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
   </body>
 </html>
